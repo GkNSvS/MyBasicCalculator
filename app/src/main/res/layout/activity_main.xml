@@ -6,50 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="102dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginBottom="98dp"
-        android:onClick="delete"
-        android:text="DELETE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSave"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
-        android:id="@+id/TextNum1"
+        android:id="@+id/txtNum1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="98dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="42dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:hint="Enter Number 1"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/TextNum2"
-        app:layout_constraintEnd_toEndOf="@+id/TextNum2"
+        app:layout_constraintBottom_toTopOf="@+id/txtNum2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/TextNum2"
+        android:id="@+id/txtNum2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="34dp"
+        android:layout_marginBottom="45dp"
         android:ems="10"
         android:hint="Enter Number 2"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/TextNum1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNum1" />
 
     <TextView
-        android:id="@+id/textResult"
+        android:id="@+id/txtResult"
         android:layout_width="267dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginBottom="186dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="210dp"
         android:freezesText="false"
         android:text="Result"
         android:textAlignment="center"
@@ -58,61 +47,93 @@
         app:flow_horizontalAlign="end"
         app:flow_verticalAlign="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="306dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="257dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="51dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btnDelete"
+        app:layout_constraintBottom_toTopOf="@+id/txtResult"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/txtNum2">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnSum"
             android:layout_width="70dp"
-            android:layout_height="51dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:onClick="sum"
-            android:text="+" />
+            android:text="+"
+            android:textSize="26dp" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnSub"
             android:layout_width="70dp"
-            android:layout_height="51dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:onClick="sub"
-            android:text="-" />
+            android:text="-"
+            android:textSize="26dp" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btnMul"
             android:layout_width="70dp"
-            android:layout_height="51dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:onClick="mul"
-            android:text="*" />
+            android:text="*"
+            android:textSize="26dp" />
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/btnDiv"
             android:layout_width="70dp"
-            android:layout_height="51dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:onClick="div"
-            android:text="/" />
+            android:text="/"
+            android:textSize="26dp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="94dp"
-        android:layout_marginBottom="98dp"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="60dp"
         android:onClick="save"
         android:text="SAVE"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textResult"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtResult" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="72dp"
+        android:onClick="delete"
+        android:text="DELETE"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtResult" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
