@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="102dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="98dp"
+        android:onClick="delete"
+        android:text="DELETE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnSave"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
     <EditText
         android:id="@+id/TextNum1"
         android:layout_width="wrap_content"
@@ -89,4 +101,18 @@
             android:onClick="div"
             android:text="/" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginBottom="98dp"
+        android:onClick="save"
+        android:text="SAVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textResult"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
