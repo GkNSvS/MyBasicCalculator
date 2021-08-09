@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,8 +17,11 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText num1,num2;
-    TextView result;
+    TextView result,txtTime;
     SharedPreferences sharedPreferences;
+    Handler handler;
+    Runnable runnable;
+    long time=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +31,22 @@ public class MainActivity extends AppCompatActivity {
         num1 =findViewById(R.id.txtNum1);
         num2 =findViewById(R.id.txtNum2);
         result=findViewById(R.id.txtResult);
+        txtTime=findViewById(R.id.txtTime);
 
         sharedPreferences=this.getSharedPreferences("com.gknsvs.basiccalculater", Context.MODE_PRIVATE);
+        time=getIntent().getLongExtra("time",0);
+
+        handler=new Handler();
+        runnable=new Runnable() {
+            @Override
+            public void run() {
+                time++;
+                txtTime.setText(String.valueOf(time)+" sn");
+                handler.postDelayed(runnable,1000);
+            }
+        };
+
+        handler.post(runnable);
 
         String storeRes = sharedPreferences.getString("result",null);
         if (storeRes!=null)
@@ -35,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
             result.setText(storeRes);
         }
     }
+
+
+
 
     private boolean control() {
         if(num1.getText().toString().matches("")||num2.getText().toString().matches(""))
@@ -107,5 +129,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alert.show();
+    }
+    public void history(View view)
+    {
+
+        handler.removeCallbacks(runnable);
+        Intent intent=new Intent(MainActivity.this,MainActivity2.class);//intent.setClass(MainActivity.this,MainActivity2.class);
+        intent.putExtra("time",time);
+        intent.putExtra("lastResult",result.getText().toString());
+        startActivity(intent);
+        finish();
     }
 }
